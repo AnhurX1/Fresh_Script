@@ -24,6 +24,7 @@ sudo unzip master.zip > /dev/null 2>&1
 cd lolcat-master/bin > /dev/null 2>&1
 sudo gem install lolcat > /dev/null 2>&1
 cd ..
+cd ..
 sudo rm master.zip
 
 # download 3d font
