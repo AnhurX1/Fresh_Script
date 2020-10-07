@@ -13,7 +13,6 @@ spinner() {
 printf 'Please Fasten Your Seatbelt... You Have Been Warned! '
 spinner &
 # Building the banner (silent)
-sudo apt-get install git -y > /dev/null 2>&1 # git
 sudo apt-get update -y > /dev/null 2>&1 # Update
 sudo apt-get install figlet -y > /dev/null 2>&1 # install figlet
 sudo apt-get install ruby -y > /dev/null 2>&1 # install ruby
@@ -24,13 +23,17 @@ sudo wget https://github.com/busyloop/lolcat/archive/master.zip > /dev/null 2>&1
 sudo unzip master.zip > /dev/null 2>&1
 cd lolcat-master/bin > /dev/null 2>&1
 sudo gem install lolcat > /dev/null 2>&1
-cd ~
+cd ..
+sudo rm master.zip
 
 # download 3d font
-sudo wget https://github.com/xero/figlet-fonts > /dev/null 2>&1
-cd figlet-fonts
+sudo wget https://github.com/xero/figlet-fonts/archive/master.zip > /dev/null 2>&1
+sudo unzip master.zip > /dev/null 2>&1
+cd figlet-fonts-master
 cp 3d.flf ~/Documents 
-cd ~
+cd ..
+sudo rm master.zip
+
 # killing the spinner function
 kill > /dev/null 2>&1 "$!"  # kill the spinner
 printf '\n'
@@ -55,10 +58,12 @@ printf '\n'
 sudo apt-get install vim -y
 sudo apt-get install vim-gtk -y
 sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-sudo git clone https://github.com/AnhurX1/dotfiles
-cd dotfiles
+sudo wget https://github.com/AnhurX1/dotfiles/archive/master.zip
+sudo unzip master.zip
+cd dotfiles-master
 cp .vimrc ~/
-cd ~
+cd ..
+sudo rm master.zip
 printf '\n'
 printf '\n'
 
