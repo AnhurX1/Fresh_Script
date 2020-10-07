@@ -13,6 +13,7 @@ spinner() {
 printf 'Please Fasten Your Seatbelt... You Have Been Warned! '
 spinner &
 # Building the banner (silent)
+sudo apt-get install git -y > /dev/null 2>&1 # git
 sudo apt-get update -y > /dev/null 2>&1 # Update
 sudo apt-get install figlet -y > /dev/null 2>&1 # install figlet
 sudo apt-get install ruby -y > /dev/null 2>&1 # install ruby
@@ -43,37 +44,59 @@ printf '\n\n'
 
 echo '                      ###Installing Git..'
 printf '\n'
+printf '\n'
 sudo apt-get install git -y
+printf '\n'
+printf '\n'
 
 echo '                      ###Installing vim+=vundle..'
 printf '\n'
+printf '\n'
 sudo apt-get install vim -y
 sudo apt-get install vim-gtk -y
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-sudo wget https://github.com/AnhurX1/dotfiles
+sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+sudo git clone https://github.com/AnhurX1/dotfiles
 cd dotfiles
 cp .vimrc ~/
 cd ~
+printf '\n'
+printf '\n'
+
 
 echo '                      ###Installing plank-dock..'
 printf '\n'
+printf '\n'
 sudo apt-get install plank -y
+printf '\n'
+printf '\n'
+
 
 echo '                      ###Installing redshift..'
 printf '\n'
+printf '\n'
 sudo apt-get install redshift redshift-gtk -y
+printf '\n'
+printf '\n'
 
 
 echo '                      ###Installing zsh..'
 printf '\n'
+printf '\n'
 sudo apt-get install zsh -y
 sudo chsh -s $(which zsh)
+printf '\n'
+printf '\n'
 
-echo '                      ###Installing ohmyzsh..'
+echo '                      ### Installing ohmyzsh..'
+printf '\n'
 printf '\n'
 sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+printf '\n'
+printf '\n'
+echo '                      ### apt Upgrade..'
 
 sudo apt-get upgrade
 
+printf '\n\n'
 figlet -f ~/Documents/3d.flf DONE | lolcat
 printf '\n\n'
