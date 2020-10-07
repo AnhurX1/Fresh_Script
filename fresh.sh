@@ -84,7 +84,7 @@ printf '\n'
 echo '                      ### Installing ohmyzsh..'
 printf '\n'
 printf '\n'
-sudo sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 printf '\n'
 printf '\n'
 echo '                      ### apt Upgrade..'
