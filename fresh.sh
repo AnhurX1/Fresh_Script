@@ -22,7 +22,7 @@ echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
 kill $spinner_pid
 wait $spinner_pid 2>/dev/null
 
-# Our Banner Is No Ready
+# Our Banner Is Now Ready
 printf '\n'
 printf '\n'
 figlet -f slant FRESH
