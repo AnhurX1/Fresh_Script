@@ -102,6 +102,12 @@ printf '\n'
 sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" 
 printf '\n'
 printf '\n'
+sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+cd dotfiles
+sudo cp .zshrc ~/
+cd ..
+
+
 echo '                      ### apt Upgrade..'
 
 sudo apt upgrade
