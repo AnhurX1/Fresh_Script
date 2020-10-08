@@ -12,8 +12,8 @@ spinner() {
 
 printf 'Please Fasten Your Seatbelt... You Have Been Warned! '
 spinner &
-# Building the banner (silently)
-sudo apt-get update -y > /dev/null 2>&1 # Update
+# Building (silently)
+apt-get install pv -y > /dev/null 2>&1
 sudo apt-get install figlet -y > /dev/null 2>&1 # install figlet
 # Our Banner Is No Ready
 figlet -f slant FRESH
@@ -25,11 +25,18 @@ wait $spinner_pid > /dev/null 2>&1
 printf '\n'
 printf '\n'
 
+echo '                      #### apt Update ####'
+printf '\n'
+printf '\n'
+sudo pv -p apt-get update  # Update
+printf '\n'
+printf '\n'
+
 
 echo '                      #### Installing wget ####'
 printf '\n'
 printf '\n'
-sudo apt-get install wget -y
+sudo pv -p apt-get install wget -y
 printf '\n'
 printf '\n'
 
@@ -37,7 +44,7 @@ printf '\n'
 echo '                      #### Installing Git ####'
 printf '\n'
 printf '\n'
-sudo apt-get install git -y
+sudo pv -p apt-get install git -y
 printf '\n'
 printf '\n'
 
@@ -46,10 +53,10 @@ printf '\n'
 echo '                      #### Installing vim+=vundle ####'
 printf '\n'
 printf '\n'
-sudo apt-get install vim -y
-sudo apt-get install vim-gtk -y
-sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-sudo git clone https://github.com/AnhurX1/dotfiles
+sudo pv -p apt-get install vim -y
+sudo pv -p apt-get install vim-gtk -y
+sudo pv -p git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+sudo pv -p git clone https://github.com/AnhurX1/dotfiles
 cd dotfiles
 cp .vimrc ~/
 cd ..
@@ -62,7 +69,7 @@ printf '\n'
 echo '                      #### Installing plank-Dock ####'
 printf '\n'
 printf '\n'
-sudo apt-get install plank -y
+sudo pv -p apt-get install plank -y
 printf '\n'
 printf '\n'
 
@@ -70,7 +77,7 @@ printf '\n'
 echo '                      #### Installing RedShift ####'
 printf '\n'
 printf '\n'
-sudo apt-get install redshift redshift-gtk -y
+sudo pv -p apt-get install redshift redshift-gtk -y
 printf '\n'
 printf '\n'
 
@@ -78,7 +85,7 @@ printf '\n'
 echo '                      #### Installing zsh ####'
 printf '\n'
 printf '\n'
-sudo apt-get install zsh -y
+sudo pv -p apt-get install zsh -y
 sudo chsh -s $(which zsh)
 printf '\n'
 printf '\n'
@@ -86,12 +93,12 @@ printf '\n'
 echo '                      #### Installing ohmyzsh ####'
 printf '\n'
 printf '\n'
-sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sudo pv -p sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 printf '\n'
 printf '\n'
 echo '                      ### apt Upgrade..'
 
-sudo apt-get upgrade
+sudo pv -p apt-get upgrade
 
 printf '\n\n'
 figlet -f slant DONE!
