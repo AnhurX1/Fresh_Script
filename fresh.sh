@@ -53,6 +53,8 @@ sudo git clone https://github.com/AnhurX1/dotfiles
 cd dotfiles
 cp .vimrc ~/
 cd ..
+mkdir ~/.vim/swp
+mkdir ~/.vim/.backup
 printf '\n'
 printf '\n'
 
