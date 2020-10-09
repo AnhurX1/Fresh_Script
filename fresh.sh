@@ -7,6 +7,7 @@ BLUE='\e[34m'
 PURPLE='\e[35m'
 WHITE='\e[37m'
 ORANGE='\e[33m'
+STOP="\e[0m" 
 
 spinner() {
     local i sp n
@@ -23,8 +24,7 @@ spinner &
 spinner_pid=$!
 
 # Building (silently)
-sudo apt install figlet -y > /dev/null 2>&1 # install figlet
-echo 'Dpkg::Progress-Fancy "1";' > /etc/apt/apt.conf.d/99progressbar
+sudo apt-get install figlet -y > /dev/null 2>&1 # install figlet
 
 # killing the spinner function
 kill $spinner_pid
@@ -37,86 +37,60 @@ figlet -f slant F R E S H
 printf '\n'
 printf '\n'
 
-printf "${RED}            [+] UPDATING APT\n"
-printf '\n'
-printf '\n'
-sudo apt update
-printf '\n'
-printf '\n'
+printf "${RED}[+] UPDATING APT\n"
+printf "${STOP}"
+sudo apt-get update > /dev/null
 
 
-printf "${GREEN}            [+] Installing Wget\n"
-printf '\n'
-printf '\n'
-sudo apt install wget -y 
-printf '\n'
-printf '\n'
+printf "[+] Installing Wget\n"
+printf "${STOP}"
+sudo apt-get install wget -y > /dev/null
 
 
-printf "${ORANGE}            [+] Installing Git\n"
-printf '\n'
-printf '\n'
-sudo apt install git -y 
-printf '\n'
-printf '\n'
+printf "${ORANGE}[+] Installing Git\n"
+printf "${STOP}"
+sudo apt-get install git -y > /dev/null
 
 
 
-printf "${GREEN}            [+] Installing VIM\n"
-printf '\n'
-printf '\n'
-sudo apt install vim -y 
-sudo apt install vim-gtk -y
-sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim | pv -p
-sudo git clone https://github.com/AnhurX1/dotfiles
+printf "${GREEN}[+] Installing VIM\n"
+printf "${STOP}"
+sudo apt-get install vim -y > /dev/null
+sudo apt-get install vim-gtk -y > /dev/null
+sudo git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null
+sudo git clone https://github.com/AnhurX1/dotfiles > /dev/null
 cd dotfiles
 cp .vimrc ~/
 cd ..
 mkdir ~/.vim/swp
 mkdir ~/.vim/.backup
-printf '\n'
-printf '\n'
+
+printf "${BLUE}[+] INSATLLING Plank Dock\n"
+printf "${STOP}"
+sudo apt-get install plank -y > /dev/null
 
 
-printf "${WHITE}            [+] INSATLLING Plank Dock\n"
-printf '\n'
-printf '\n'
-sudo apt install plank -y
-printf '\n'
-printf '\n'
+printf "${ORANGE}[+] ISNTALLING RedShift\n"
+printf "${STOP}"
+sudo apt-get install redshift redshift-gtk -y > /dev/null
 
-
-printf "${ORANGE}            [+] ISNTALLING RedShift\n"
-printf '\n'
-printf '\n'
-sudo apt install redshift redshift-gtk -y
-printf '\n'
-printf '\n'
-
-
-printf "${PURPLE}            [+] INSTALLING Zsh\n"
-printf '\n'
-printf '\n'
-sudo apt install zsh -y
-sudo chsh -s $(which zsh)
-printf '\n'
-printf '\n'
-
-printf "${PURPLE}            [+] INSTALLING OhMyZsh\n"
-printf '\n'
-printf '\n'
-sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" 
-printf '\n'
-printf '\n'
-sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+printf "${PURPLE}[+] INSTALLING Zsh\n"
+printf "${STOP}"
+sudo apt-get install zsh -y > /dev/null
+sudo chsh -s $(which zsh) 
+printf "${PURPLE}[+] INSTALLING OhMyZsh\n"
+printf "${STOP}"
+sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" >>/dev/null 2>&1
+sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions > /dev/null
 cd dotfiles
 sudo cp .zshrc ~/
 cd ..
 
 
-printf "${RED}            [+] UPGRADING APT\n"
+printf "${RED}[+] UPGRADING APT\n"
+printf "${STOP}"
 
-sudo apt upgrade
+sudo apt-get upgrade > /dev/null
 
 printf '\n\n'
 figlet -f slant D O N E !
