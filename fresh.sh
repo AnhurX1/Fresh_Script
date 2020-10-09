@@ -39,8 +39,9 @@ printf '\n'
 
 printf "${RED}[+] UPDATING APT\n"
 printf "${STOP}"
+spinner &
+spinner_pid=$!
 sudo apt-get update > /dev/null
-
 
 printf "[+] Installing Wget\n"
 printf "${STOP}"
@@ -50,7 +51,6 @@ sudo apt-get install wget -y > /dev/null
 printf "${ORANGE}[+] Installing Git\n"
 printf "${STOP}"
 sudo apt-get install git -y > /dev/null
-
 
 
 printf "${GREEN}[+] Installing VIM\n"
@@ -80,7 +80,8 @@ sudo apt-get install zsh -y > /dev/null
 sudo chsh -s $(which zsh) 
 printf "${PURPLE}[+] INSTALLING OhMyZsh\n"
 printf "${STOP}"
-sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" >>/dev/null 2>&1
+sudo wget -q https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /dev/null
+sh install.sh > /dev/null
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions > /dev/null
 cd dotfiles
 sudo cp .zshrc ~/
@@ -91,6 +92,9 @@ printf "${RED}[+] UPGRADING APT\n"
 printf "${STOP}"
 
 sudo apt-get upgrade > /dev/null
+
+kill $spinner_pid
+wait $spinner_pid 2>/dev/null
 
 printf '\n\n'
 figlet -f slant D O N E !
