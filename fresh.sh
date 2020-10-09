@@ -37,7 +37,7 @@ figlet -f slant F R E S H
 printf '\n'
 printf '\n'
 
-printf "${RED}[+] UPDATING APT\n"
+printf "${RED} [+] UPDATING APT\n"
 printf "${STOP}"
 spinner &
 spinner_pid=$!
@@ -48,12 +48,12 @@ printf "${STOP}"
 sudo apt-get install wget -y > /dev/null
 
 
-printf "${ORANGE}[+] Installing Git\n"
+printf "${ORANGE} [+] Installing Git\n"
 printf "${STOP}"
 sudo apt-get install git -y > /dev/null
 
 
-printf "${GREEN}[+] Installing VIM\n"
+printf "${GREEN} [+] Installing VIM\n"
 printf "${STOP}"
 sudo apt-get install vim -y > /dev/null
 sudo apt-get install vim-gtk -y > /dev/null
@@ -65,20 +65,20 @@ cd ..
 mkdir ~/.vim/swp
 mkdir ~/.vim/.backup
 
-printf "${BLUE}[+] INSATLLING Plank Dock\n"
+printf "${BLUE} [+] INSATLLING Plank Dock\n"
 printf "${STOP}"
 sudo apt-get install plank -y > /dev/null
 
 
-printf "${ORANGE}[+] ISNTALLING RedShift\n"
+printf "${ORANGE} [+] ISNTALLING RedShift\n"
 printf "${STOP}"
 sudo apt-get install redshift redshift-gtk -y > /dev/null
 
-printf "${PURPLE}[+] INSTALLING Zsh\n"
+printf "${PURPLE} [+] INSTALLING Zsh\n"
 printf "${STOP}"
 sudo apt-get install zsh -y > /dev/null
 sudo chsh -s $(which zsh) 
-printf "${PURPLE}[+] INSTALLING OhMyZsh\n"
+printf "${PURPLE} [+] INSTALLING OhMyZsh\n"
 printf "${STOP}"
 sudo wget -q https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /dev/null
 sh install.sh > /dev/null
@@ -88,7 +88,7 @@ sudo cp .zshrc ~/
 cd ..
 
 
-printf "${RED}[+] UPGRADING APT\n"
+printf "${RED} [+] UPGRADING APT\n"
 printf "${STOP}"
 
 sudo apt-get upgrade > /dev/null
