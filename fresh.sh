@@ -40,8 +40,6 @@ printf '\n'
 printf "${RED}            [+] UPDATING APT\n"
 printf '\n'
 printf '\n'
-bar &
-bar_pid=$!
 sudo apt update
 printf '\n'
 printf '\n'
