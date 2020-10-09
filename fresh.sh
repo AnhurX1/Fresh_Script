@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Color Variables
+RED='\e[31m'
+GREEN="\e[92m"
+BLUE='\e[34m'
+PURPLE='\e[35m'
+WHITE='\e[37m'
+ORANGE='\e[33m'
+
 spinner() {
     local i sp n
     sp='/-\|'
@@ -25,11 +33,11 @@ wait $spinner_pid 2>/dev/null
 # Our Banner Is Now Ready
 printf '\n'
 printf '\n'
-figlet -f slant FRESH
+figlet -f slant F R E S H
 printf '\n'
 printf '\n'
 
-echo '                      #### apt Update ####'
+printf "${RED}            [+] UPDATING APT\n"
 printf '\n'
 printf '\n'
 bar &
@@ -39,7 +47,7 @@ printf '\n'
 printf '\n'
 
 
-echo '                      #### Installing wget ####'
+printf "${GREEN}            [+] Installing Wget\n"
 printf '\n'
 printf '\n'
 sudo apt install wget -y 
@@ -47,7 +55,7 @@ printf '\n'
 printf '\n'
 
 
-echo '                      #### Installing Git ####'
+printf "${ORANGE}            [+] Installing Git\n"
 printf '\n'
 printf '\n'
 sudo apt install git -y 
@@ -56,7 +64,7 @@ printf '\n'
 
 
 
-echo '                      #### Installing vim+=vundle ####'
+printf "${GREEN}            [+] Installing VIM\n"
 printf '\n'
 printf '\n'
 sudo apt install vim -y 
@@ -72,7 +80,7 @@ printf '\n'
 printf '\n'
 
 
-echo '                      #### Installing plank-Dock ####'
+printf "${WHITE}            [+] INSATLLING Plank Dock\n"
 printf '\n'
 printf '\n'
 sudo apt install plank -y
@@ -80,7 +88,7 @@ printf '\n'
 printf '\n'
 
 
-echo '                      #### Installing RedShift ####'
+printf "${ORANGE}            [+] ISNTALLING RedShift\n"
 printf '\n'
 printf '\n'
 sudo apt install redshift redshift-gtk -y
@@ -88,7 +96,7 @@ printf '\n'
 printf '\n'
 
 
-echo '                      #### Installing zsh ####'
+printf "${PURPLE}            [+] INSTALLING Zsh\n"
 printf '\n'
 printf '\n'
 sudo apt install zsh -y
@@ -96,7 +104,7 @@ sudo chsh -s $(which zsh)
 printf '\n'
 printf '\n'
 
-echo '                      #### Installing ohmyzsh ####'
+printf "${PURPLE}            [+] INSTALLING OhMyZsh\n"
 printf '\n'
 printf '\n'
 sudo sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" 
@@ -108,10 +116,10 @@ sudo cp .zshrc ~/
 cd ..
 
 
-echo '                      ### apt Upgrade..'
+printf "${RED}            [+] UPGRADING APT\n"
 
 sudo apt upgrade
 
 printf '\n\n'
-figlet -f slant DONE!
+figlet -f slant D O N E !
 printf '\n\n'
