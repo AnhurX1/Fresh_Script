@@ -65,7 +65,7 @@ cd ..
 mkdir ~/.vim/swp
 mkdir ~/.vim/.backup
 
-printf "${BLUE} [+] INSATLLING Plank Dock\n"
+printf " [+] INSATLLING Plank Dock\n"
 printf "${STOP}"
 sudo apt-get install plank -y > /dev/null
 
